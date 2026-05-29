@@ -1,6 +1,6 @@
-## Análisis de comportamiento por IP
+# Análisis de comportamiento por IP
 
-# 5.252.153.241 → “fase inicial / establecedor”
+## 5.252.153.241 → “fase inicial / establecedor”
 
 * Empieza primero (20:45)
 * Mayor volumen (1376 conexiones)
@@ -19,7 +19,7 @@ Probablemente:
 
 ⸻
 
-# 45.125.66.32 → “fase de actividad fuerte posterior”
+## 45.125.66.32 → “fase de actividad fuerte posterior”
 
 * Empieza después (20:59)
 * MUCHÍSIMO volumen (3737)
@@ -38,7 +38,7 @@ Esto suele encajar con:
 
 ⸻
 
-# 45.125.66.252 → “nodo paralelo / redundancia”
+## 45.125.66.252 → “nodo paralelo / redundancia”
 
 * Empieza 21:00 (casi junto al anterior)
 * Menor volumen (465)
@@ -56,7 +56,7 @@ Posible:
 * servidor de staging
 
 -------
-# CLAVE
+## CLAVE
 
 * TLSv1.2 aparece en TODOS
 * HTTP aparece solo en el primero
