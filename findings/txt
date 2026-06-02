@@ -1,1 +1,11 @@
+findings/
 
+├── 01_role_classification.pdf
+
+├── 02_event_timeline.pdf
+
+├── 03_flow_and_session_analysis.pdf
+
+├── 04_ioc_enrichment_and_external_intel.pdf
+
+└── 05_final_incident_summary.pdf
