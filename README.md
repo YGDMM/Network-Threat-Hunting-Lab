@@ -1,128 +1,130 @@
-# Network Threat Hunting Lab
-
-Work in Progress
+# Threat Hunting Lab – PCAP Behavioral Analysis
 
 ## Overview
 
-This project focuses on defensive cybersecurity analysis using Python and network analysis tools.
+This project is a full end-to-end threat hunting investigation based on a real PCAP file.  
+The objective is to identify suspicious network behaviour, reconstruct a potential intrusion chain, and extract meaningful Indicators of Compromise (IOCs).
 
-The objective is to simulate basic threat hunting and SOC-style investigation workflows by analyzing network traffic, identifying suspicious behavior and mapping activity to defensive security concepts.
+The analysis follows a structured DFIR-style methodology combining:
 
-The project combines:
-
-- Python scripting
-- Network reconnaissance
-- Packet analysis
-- Log analysis
-- Threat detection
-- Basic MITRE ATT&CK mapping
+- Packet-level inspection (TShark)
+- DNS & TLS correlation
+- Temporal peak analysis
+- Infrastructure profiling (WHOIS / ASN)
+- Behavioral traffic analysis
 
 ---
 
-## Project Goals
+## Methodology
 
-The main goals of this project are:
+The investigation is structured into multiple phases:
 
-- Understand how network reconnaissance works
-- Analyze packet-level network activity
-- Detect suspicious communication patterns
-- Simulate defensive cybersecurity workflows
-- Develop practical Python skills for cyber investigations
-
----
-
-## Planned Project Phases
-
-### Phase 1 — Network Reconnaissance
-
-Basic network discovery and enumeration using Python tools.
-
-Planned topics:
-
-- Host discovery
-- Port scanning
-- Service identification
-- Network mapping
-
-Tools:
-
-- Scapy
-- socket
-- python-nmap
+1. Baseline traffic extraction (PCAP → TSV)
+2. DNS analysis
+3. Protocol and lateral movement review
+4. Timeline reconstruction
+5. Peak activity detection
+6. IOC correlation across time windows
+7. Infrastructure enrichment (WHOIS / ASN)
+8. Victim profiling
+9. IOC synthesis
+10. Attack reconstruction narrative
 
 ---
 
-### Phase 2 — Packet Traffic Analysis
+## Key Findings
 
-Capture and analyze network traffic to understand communication patterns.
-
-Planned topics:
-
-- DNS traffic
-- HTTP requests
-- ICMP analysis
-- ARP traffic
-- Packet inspection
-
-Tools:
-
-- Wireshark
-- Scapy
-- Python
+### Initial Access Vector
+- Suspicious domain observed via TLS SNI:
+  - `authenticatoor.org`
+- Behaviour consistent with phishing-style authentication lure
 
 ---
 
-### Phase 3 — Suspicious Activity Detection
+### External Infrastructure Observed
 
-Identify potentially malicious or unusual network behavior.
+Multiple external IPs show coordinated or staged communication patterns:
 
-Planned topics:
-
-- Port scan detection
-- Repeated connection attempts
-- Unusual traffic patterns
-- Suspicious DNS activity
-- Traffic anomalies
+- `82.221.136.26` → staging / phishing-linked host
+- `5.252.153.241` → initial burst activity (bootstrap phase)
+- `45.125.66.32` → sustained communication node
+- `45.125.66.252` → secondary infrastructure node
+- `23.55.125.176` → high-volume CDN infrastructure (Akamai, likely benign)
 
 ---
 
-### Phase 4 — Log Analysis
+### Temporal Behaviour
 
-Analyze logs generated from network activity and detection scripts.
+Traffic analysis reveals structured phases:
 
-Planned topics:
-
-- Event correlation
-- Suspicious indicators
-- Behavioral analysis
-- Detection logic
-
----
-
-### Phase 5 — MITRE ATT&CK Mapping
-
-Relate observed behaviors to common ATT&CK techniques.
-
-Examples may include:
-
-- Active Scanning
-- Network Service Discovery
-- Protocol Abuse
-- Discovery Techniques
+- Initial contact phase (20:45)
+- Burst activity phase (20:47)
+- Infrastructure engagement (20:59–21:00)
+- Coordinated multi-node communication (21:25+)
+- Sustained low-volume activity (post-21:30)
 
 ---
 
-## Technologies
+### Behavioural Characteristics
 
-- Python
-- Scapy
-- Wireshark
-- Nmap
-- pandas
-- matplotlib
+- TLS (v1.2 / v1.3) dominates external communication
+- Irregular beacon-like timing (jittered behaviour)
+- High packet bursts in short time windows
+- Internal AD traffic coexists with external communication
+- DNS partially internally resolved (limited external visibility)
 
 ---
 
-## Status
+## IOC Summary
 
-This repository is currently under active development.
+| Type   | Indicator | Description |
+|--------|-----------|-------------|
+| Domain | authenticatoor.org | Suspicious phishing/staging domain |
+| IP     | 82.221.136.26 | TLS SNI correlated staging host |
+| IP     | 5.252.153.241 | Initial burst infrastructure |
+| IP     | 45.125.66.32 | Primary suspicious node |
+| IP     | 45.125.66.252 | Secondary node |
+| IP     | 23.55.125.176 | CDN (Akamai) high-volume benign traffic |
+| ASN    | AS133398 | HostBaltic infrastructure |
+
+---
+
+## Conclusion
+
+The observed network behaviour is consistent with a multi-stage suspicious infrastructure communication pattern involving staged external hosts and coordinated traffic peaks.
+
+While no direct malware payload was identified, the combination of:
+
+- TLS SNI analysis
+- Traffic burst behaviour
+- Temporal clustering
+- Infrastructure correlation
+
+supports a **suspicious post-compromise communication scenario with C2-like behaviour indicators**.
+
+However, classification remains at **“suspicious infrastructure interaction” rather than confirmed command-and-control compromise**.
+
+---
+
+## Tools Used
+
+- TShark
+- Python (Pandas)
+- WHOIS lookup
+- ipinfo ASN enrichment
+- TLS / DNS correlation analysis
+
+---
+
+## Outputs
+
+- `pcap_output.tsv`
+- `peak_activity.csv`
+- `ioc_table.csv`
+- `ioc_timeline.csv`
+
+---
+
+## Author Notes
+
+This project focuses on behavioural detection and infrastructure correlation rather than signature-based malware detection.rently under active development.
