@@ -1,0 +1,6 @@
+timestamp,event_type,source,destination,details,confidence
+2025-01-22 20:45:36,INITIAL_COMPROMISE_INDICATOR,10.1.17.215,82.221.136.26,TLS SNI -> authenticatoor.org,High
+2025-01-22 20:47:00,BOOTSTRAP_ACTIVITY,10.1.17.215,5.252.153.241,Initial burst (>5600 packets / 30s),High
+2025-01-22 20:59:30,C2_STAGE_START,10.1.17.215,45.125.66.32,First major activity spike,Medium
+2025-01-22 21:00:00,SECONDARY_NODE_START,10.1.17.215,45.125.66.252,Secondary TLS communications begin,Medium
+2025-01-22 21:25:00,COORDINATED_ACTIVITY,C2_CLUSTER,Victim Host,Multi-node synchronization detected,Medium
