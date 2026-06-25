@@ -1,0 +1,9 @@
+Type,IOC,Evidence,Category,Confidence
+Domain,authenticatoor.org,TLS SNI observed during initial compromise window,Suspicious authentication phishing / staging domain,High
+IP,82.221.136.26,TLS SNI correlation with fake authentication domain,Suspicious hosting / staging infrastructure,High
+IP,5.252.153.241,High-volume bootstrap traffic during initial peak phase,Suspicious external host (bootstrap activity),Medium-High
+IP,45.125.66.32,Sustained peak traffic and coordinated communication pattern,Suspicious external infrastructure node (primary),Medium
+IP,45.125.66.252,Secondary sustained communication pattern,Suspicious external infrastructure node (secondary),Medium
+IP,23.55.125.176,High-volume TLS traffic consistent with CDN delivery (Akamai),High-volume CDN infrastructure (likely benign noise),Low (contextual relevance only)
+ASN,AS133398,HostBaltic infrastructure hosting 45.125.66.0/24 range,Hosting provider (infrastructure correlation),Medium
+Domain,bluemoontuesday.com,Identified as internal AD domain traffic,Internal infrastructure (non-malicious),High
