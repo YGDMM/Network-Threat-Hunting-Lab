@@ -19,36 +19,25 @@ No malware binary was directly observed; all conclusions are based on network te
 
 ## 2. VICTIM PROFILE
 
-field,value
-Question,Evidence Source Summary
-User,shutchenson
-Hostname,DESKTOP-L8C5GSJ
-Domain,BLUEMOONTUESDAY.COM
-AD Environment,BLUEMOONTUESDAY
-Kerberos Activity,Yes
-Domain Controller,10.1.17.2 (WIN-GSH54QLW48D)
-Gateway,10.1.17.1
-LAN Range,10.1.17.0/24
-Authentication Domain,BLUEMOONTUESDAY.COM
-Evidence Source,Kerberos ticket requests observed during lateral movement analysis
-Victim IP,10.1.17.215
-Victim MAC,00:d0:b7:26:4a:74
-First seen,2025-01-22 20:44:56.530137+01:00
-Last seen,2025-01-22 21:38:18.918250+01:00
-Top Protocols,"protocol  count
-     TCP  26741
- TLSv1.2   3642
- TLSv1.3   3403
-     DNS   1512
-    HTTP   1253
-    LDAP    497
-    QUIC    450
-     ARP    340
- DRSUAPI    292
-    SMB2    252"
-Detected Hostnames,_ldap._tcp.Default-First-Site-Name._sites.dc._msdcs.bluemoontuesday.com; win-gsh54qlw48d.bluemoontuesday.com; DESKTOP-L8C5GSJ.bluemoontuesday.com; bluemoontuesday.com; wpad.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.WIN-GSH54QLW48D.bluemoontuesday.com; _ldap._tcp.WIN-GSH54QLW48D.bluemoontuesday.com; _kerberos._tcp.Default-First-Site-Name._sites.dc._msdcs.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.bluemoontuesday.com; WIN-GSH54QLW48D.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.ForestDnsZones.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.DomainDnsZones.bluemoontuesday.com
-Domain-related Activity,_ldap._tcp.Default-First-Site-Name._sites.dc._msdcs.bluemoontuesday.com; win-gsh54qlw48d.bluemoontuesday.com; DESKTOP-L8C5GSJ.bluemoontuesday.com; bluemoontuesday.com; wpad.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.WIN-GSH54QLW48D.bluemoontuesday.com; _ldap._tcp.WIN-GSH54QLW48D.bluemoontuesday.com; _kerberos._tcp.Default-First-Site-Name._sites.dc._msdcs.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.bluemoontuesday.com; WIN-GSH54QLW48D.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.ForestDnsZones.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.DomainDnsZones.bluemoontuesday.com
-
+| Field | Value |
+|------|------|
+| User | shutchenson |
+| Hostname | DESKTOP-L8C5GSJ |
+| Domain | BLUEMOONTUESDAY.COM |
+| AD Environment | BLUEMOONTUESDAY |
+| Kerberos Activity | Yes |
+| Domain Controller | 10.1.17.2 (WIN-GSH54QLW48D) |
+| Gateway | 10.1.17.1 |
+| LAN Range | 10.1.17.0/24 |
+| Authentication Domain | BLUEMOONTUESDAY.COM |
+| Evidence Source | Kerberos ticket requests observed during lateral movement analysis |
+| Victim IP | 10.1.17.215 |
+| Victim MAC | 00:d0:b7:26:4a:74 |
+| First seen | 2025-01-22 20:44:56.530137+01:00 |
+| Last seen | 2025-01-22 21:38:18.918250+01:00 |
+| Top Protocols | TCP 26741, TLSv1.2 3642, TLSv1.3 3403, DNS 1512, HTTP 1253, LDAP 497, QUIC 450, ARP 340, DRSUAPI 292, SMB2 252 |
+| Detected Hostnames | _ldap._tcp.Default-First-Site-Name._sites.dc._msdcs.bluemoontuesday.com; win-gsh54qlw48d.bluemoontuesday.com; DESKTOP-L8C5GSJ.bluemoontuesday.com; bluemoontuesday.com; wpad.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.WIN-GSH54QLW48D.bluemoontuesday.com; _ldap._tcp.WIN-GSH54QLW48D.bluemoontuesday.com; _kerberos._tcp.Default-First-Site-Name._sites.dc._msdcs.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.bluemoontuesday.com; WIN-GSH54QLW48D.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.ForestDnsZones.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.DomainDnsZones.bluemoontuesday.com |
+| Domain-related Activity | _ldap._tcp.Default-First-Site-Name._sites.dc._msdcs.bluemoontuesday.com; win-gsh54qlw48d.bluemoontuesday.com; DESKTOP-L8C5GSJ.bluemoontuesday.com; bluemoontuesday.com; wpad.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.WIN-GSH54QLW48D.bluemoontuesday.com; _ldap._tcp.WIN-GSH54QLW48D.bluemoontuesday.com; _kerberos._tcp.Default-First-Site-Name._sites.dc._msdcs.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.bluemoontuesday.com; WIN-GSH54QLW48D.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.ForestDnsZones.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.DomainDnsZones.bluemoontuesday.com |
   
 Key Observations
 
@@ -74,15 +63,16 @@ This pattern is consistent with:
 
 ## 4. SUSPICIOUS EXTERNAL INFRASTRUCTURE
 
-Type	IOC	Evidence	Category	Confidence
-Domain	authenticatoor.org	TLS SNI observed during initial compromise window	Suspicious authentication phishing / staging domain	High
-IP	82.221.136.26	TLS SNI correlation with fake authentication domain	Suspicious hosting / staging infrastructure	High
-IP	5.252.153.241	High-volume bootstrap traffic during initial peak phase	Suspicious external host (bootstrap activity)	Medium-High
-IP	45.125.66.32	Sustained peak traffic and coordinated communication pattern	Suspicious external infrastructure node (primary)	Medium
-IP	45.125.66.252	Secondary sustained communication pattern	Suspicious external infrastructure node (secondary)	Medium
-IP	23.55.125.176	High-volume TLS traffic consistent with CDN delivery (Akamai)	High-volume CDN infrastructure (likely benign noise)	Low (contextual relevance only)
-ASN	AS133398	HostBaltic infrastructure hosting 45.125.66.0/24 range	Hosting provider (infrastructure correlation)	Medium
-Domain	bluemoontuesday.com	Identified as internal AD domain traffic	Internal infrastructure (non-malicious)	High
+| Type | IOC | Evidence | Category | Confidence |
+|------|-----|----------|----------|------------|
+| Domain | authenticatoor.org | TLS SNI observed during initial compromise window | Suspicious authentication phishing / staging domain | High |
+| IP | 82.221.136.26 | TLS SNI correlation with fake authentication domain | Suspicious hosting / staging infrastructure | High |
+| IP | 5.252.153.241 | High-volume bootstrap traffic during initial peak phase | Suspicious external host (bootstrap activity) | Medium-High |
+| IP | 45.125.66.32 | Sustained peak traffic and coordinated communication pattern | Suspicious external infrastructure node (primary) | Medium |
+| IP | 45.125.66.252 | Secondary sustained communication pattern | Suspicious external infrastructure node (secondary) | Medium |
+| IP | 23.55.125.176 | High-volume TLS traffic consistent with CDN delivery (Akamai) | CDN infrastructure (likely benign noise) | Low (contextual) |
+| ASN | AS133398 | HostBaltic infrastructure hosting 45.125.66.0/24 range | Hosting provider correlation | Medium |
+| Domain | bluemoontuesday.com | Identified as internal AD domain traffic | Internal infrastructure (non-malicious) | High |
 
 Notes
 
@@ -115,12 +105,13 @@ Traffic does not show strict beaconing, but instead:
 
 ## 6. IOC TIMELINE (CORE RECONSTRUCTION)
 
-timestamp	event_type	source	destination	details	confidence
-2025-01-22 20:45:36	INITIAL_COMPROMISE_INDICATOR	10.1.17.215	82.221.136.26	TLS SNI -> authenticatoor.org	High
-2025-01-22 20:47:00	BOOTSTRAP_ACTIVITY	10.1.17.215	5.252.153.241	Initial burst (>5600 packets / 30s)	High
-2025-01-22 20:59:30	C2_STAGE_START	10.1.17.215	45.125.66.32	First major activity spike	Medium
-2025-01-22 21:00:00	SECONDARY_NODE_START	10.1.17.215	45.125.66.252	Secondary TLS communications begin	Medium
-2025-01-22 21:25:00	COORDINATED_ACTIVITY	C2_CLUSTER	Victim Host	Multi-node synchronization detected
+| Timestamp | Event Type | Source | Destination | Details | Confidence |
+|------------|------------|--------|-------------|----------|------------|
+| 2025-01-22 20:45:36 | INITIAL_COMPROMISE_INDICATOR | 10.1.17.215 | 82.221.136.26 | TLS SNI -> authenticatoor.org | High |
+| 2025-01-22 20:47:00 | BOOTSTRAP_ACTIVITY | 10.1.17.215 | 5.252.153.241 | Initial burst (>5600 packets / 30s) | High |
+| 2025-01-22 20:59:30 | C2_STAGE_START | 10.1.17.215 | 45.125.66.32 | First major activity spike | Medium |
+| 2025-01-22 21:00:00 | SECONDARY_NODE_START | 10.1.17.215 | 45.125.66.252 | Secondary TLS communications begin | Medium |
+| 2025-01-22 21:25:00 | COORDINATED_ACTIVITY | C2_CLUSTER | Victim Host | Multi-node synchronization detected | Medium |
 
 ## 7. ENRICHMENT DATA
 
