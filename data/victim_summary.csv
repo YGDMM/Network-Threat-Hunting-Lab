@@ -1,0 +1,29 @@
+field,value
+Question,Evidence Source Summary
+User,shutchenson
+Hostname,DESKTOP-L8C5GSJ
+Domain,BLUEMOONTUESDAY.COM
+AD Environment,BLUEMOONTUESDAY
+Kerberos Activity,Yes
+Domain Controller,10.1.17.2 (WIN-GSH54QLW48D)
+Gateway,10.1.17.1
+LAN Range,10.1.17.0/24
+Authentication Domain,BLUEMOONTUESDAY.COM
+Evidence Source,Kerberos ticket requests observed during lateral movement analysis
+Victim IP,10.1.17.215
+Victim MAC,00:d0:b7:26:4a:74
+First seen,2025-01-22 20:44:56.530137+01:00
+Last seen,2025-01-22 21:38:18.918250+01:00
+Top Protocols,"protocol  count
+     TCP  26741
+ TLSv1.2   3642
+ TLSv1.3   3403
+     DNS   1512
+    HTTP   1253
+    LDAP    497
+    QUIC    450
+     ARP    340
+ DRSUAPI    292
+    SMB2    252"
+Detected Hostnames,_ldap._tcp.Default-First-Site-Name._sites.dc._msdcs.bluemoontuesday.com; win-gsh54qlw48d.bluemoontuesday.com; DESKTOP-L8C5GSJ.bluemoontuesday.com; bluemoontuesday.com; wpad.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.WIN-GSH54QLW48D.bluemoontuesday.com; _ldap._tcp.WIN-GSH54QLW48D.bluemoontuesday.com; _kerberos._tcp.Default-First-Site-Name._sites.dc._msdcs.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.bluemoontuesday.com; WIN-GSH54QLW48D.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.ForestDnsZones.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.DomainDnsZones.bluemoontuesday.com
+Domain-related Activity,_ldap._tcp.Default-First-Site-Name._sites.dc._msdcs.bluemoontuesday.com; win-gsh54qlw48d.bluemoontuesday.com; DESKTOP-L8C5GSJ.bluemoontuesday.com; bluemoontuesday.com; wpad.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.WIN-GSH54QLW48D.bluemoontuesday.com; _ldap._tcp.WIN-GSH54QLW48D.bluemoontuesday.com; _kerberos._tcp.Default-First-Site-Name._sites.dc._msdcs.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.bluemoontuesday.com; WIN-GSH54QLW48D.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.ForestDnsZones.bluemoontuesday.com; _ldap._tcp.Default-First-Site-Name._sites.DomainDnsZones.bluemoontuesday.com
