@@ -114,14 +114,6 @@ However, classification remains at **“suspicious infrastructure interaction”
 - ipinfo ASN enrichment
 - TLS / DNS correlation analysis
 
----
-
-## Outputs
-
-- `pcap_output.tsv`
-- `peak_activity.csv`
-- `ioc_table.csv`
-- `ioc_timeline.csv`
 
 ---
 
